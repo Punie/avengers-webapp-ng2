@@ -7,7 +7,13 @@ import {AvengersService} from "../avengers.service";
 
 @Component({
   selector: 'av-avenger-edit',
-  templateUrl: './avenger-edit.component.html'
+  templateUrl: './avenger-edit.component.html',
+  styles: [`
+    .img-form {
+      max-height: 256px;
+      max-width: 256px;
+    }
+  `]
 })
 export class AvengerEditComponent implements OnInit, OnChanges {
   agents: Observable<Agent[]>;

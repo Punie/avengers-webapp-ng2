@@ -4,7 +4,13 @@ import {AgentsService} from "../agents.service";
 
 @Component({
   selector: 'av-agent-create',
-  templateUrl: './agent-create.component.html'
+  templateUrl: './agent-create.component.html',
+  styles: [`
+    .img-form {
+      max-height: 256px;
+      max-width: 256px;
+    }
+  `]
 })
 export class AgentCreateComponent implements OnInit {
   agentModel: Agent = new Agent(null,null,null,null,null,null);

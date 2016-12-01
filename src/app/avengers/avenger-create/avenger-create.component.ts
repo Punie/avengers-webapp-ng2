@@ -7,7 +7,13 @@ import {AvengersService} from "../avengers.service";
 
 @Component({
   selector: 'av-avenger-create',
-  templateUrl: './avenger-create.component.html'
+  templateUrl: './avenger-create.component.html',
+  styles: [`
+    .img-form {
+      max-height: 256px;
+      max-width: 256px;
+    }
+  `]
 })
 export class AvengerCreateComponent implements OnInit {
   agents: Observable<Agent[]>;

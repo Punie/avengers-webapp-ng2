@@ -6,8 +6,8 @@ import {Avenger} from "../avenger";
   templateUrl: './avenger-view.component.html',
   styles: [`
     img {
-      max-width: 128px;
-      max-height: 128px;
+      max-width: 256px;
+      max-height: 256px;
     }
 `]
 })
