@@ -7,7 +7,7 @@ import {Avenger} from "./avenger";
 
 @Injectable()
 export class AvengersService {
-  private avengersUrl = 'http://localhost:8080/api/avengers/';
+  private avengersUrl = 'https://avengers-webapp.herokuapp.com/api/avengers/';
 
   constructor(private http: Http) { }
 
