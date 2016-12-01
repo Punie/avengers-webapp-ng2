@@ -17,6 +17,7 @@ import { AvengerOrderByPipe } from './avengers/avenger-orderby.pipe';
 import { AgentOrderByPipe } from './agents/agent-orderby.pipe';
 import { AvengerViewComponent } from './avengers/avenger-view/avenger-view.component';
 import { AvengerEditComponent } from './avengers/avenger-edit/avenger-edit.component';
+import { AvengerCreateComponent } from './avengers/avenger-create/avenger-create.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AvengerEditComponent } from './avengers/avenger-edit/avenger-edit.compo
     AvengerOrderByPipe,
     AgentOrderByPipe,
     AvengerViewComponent,
-    AvengerEditComponent
+    AvengerEditComponent,
+    AvengerCreateComponent
   ],
   imports: [
     BrowserModule,

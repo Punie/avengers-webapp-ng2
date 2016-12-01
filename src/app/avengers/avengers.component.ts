@@ -18,6 +18,7 @@ export class AvengersComponent implements OnInit {
   avengers: Observable<Avenger[]>;
   avengerSelected: Avenger;
   avengerView = false;
+  avengerCreate = false;
   avengerEdit = false;
   avOrderBy: string;
 
@@ -29,13 +30,21 @@ export class AvengersComponent implements OnInit {
   }
 
   viewAvenger(avenger: Avenger) {
+    this.avengerCreate = false;
     this.avengerEdit = false;
     this.avengerView = true;
     this.avengerSelected = avenger;
   }
 
+  createAvenger() {
+    this.avengerView = false;
+    this.avengerEdit = false;
+    this.avengerCreate = true;
+  }
+
   editAvenger(avenger: Avenger) {
     this.avengerView = false;
+    this.avengerCreate = false;
     this.avengerEdit = true;
     this.avengerSelected = avenger;
   }
@@ -50,12 +59,14 @@ export class AvengersComponent implements OnInit {
 
   refreshView() {
     this.avengerView = false;
+    this.avengerCreate = false;
     this.avengerEdit = false;
     this.avengers = this.avengersService.getAvengers();
   }
 
   closePanel() {
     this.avengerView = false;
+    this.avengerCreate = false;
     this.avengerEdit = false;
   }
 

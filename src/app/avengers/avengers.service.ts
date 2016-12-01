@@ -16,7 +16,16 @@ export class AvengersService {
                     .map((response: Response) => response.json());
   }
 
-  updateAvenger(avenger: Avenger) {
+  createAvenger(avenger: Avenger) : Observable<Avenger> {
+    let body = JSON.stringify(avenger);
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.post(this.avengersUrl, body, options)
+                    .map(avenger => avenger.json());
+  }
+
+  updateAvenger(avenger: Avenger) : Observable<Response> {
     let body = JSON.stringify(avenger);
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });

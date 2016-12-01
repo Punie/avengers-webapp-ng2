@@ -6,7 +6,7 @@
     <hr>
     <div class="row">
       <div class="col-md-8">
-        <button class="btn btn-success">Add Avenger</button>
+        <button class="btn btn-success" (click)="createAvenger()">Add Avenger</button>
       </div>
       <div class="col-md-4">
         <div class="input-group">
@@ -68,6 +68,7 @@
     <hr>
 
     <av-avenger-view *ngIf="avengerView" [avenger]="avengerSelected" (actionCanceled)="closePanel()"></av-avenger-view>
+    <av-avenger-create *ngIf="avengerCreate" (avengerCreated)="refreshView()" (actionCanceled)="closePanel()"></av-avenger-create>
     <av-avenger-edit *ngIf="avengerEdit" [avenger]="avengerSelected" (avengerUpdated)="refreshView()" (actionCanceled)="closePanel()"></av-avenger-edit>
 
   </div>
