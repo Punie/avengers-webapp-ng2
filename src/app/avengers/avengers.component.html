@@ -37,8 +37,8 @@
         <td>
           <div>
             <p>
-              <button class="btn btn-xs btn-success glyphicon glyphicon-user" type="submit"></button>
-              <button class="btn btn-xs btn-warning glyphicon glyphicon-pencil" type="submit"></button>
+              <button class="btn btn-xs btn-success glyphicon glyphicon-user" type="submit" (click)="viewAvenger(avenger)"></button>
+              <button class="btn btn-xs btn-warning glyphicon glyphicon-pencil" type="submit" (click)="editAvenger(avenger)"></button>
               <button class="btn btn-xs btn-danger glyphicon glyphicon-remove" type="submit" (click)="removeAvenger(avenger.id)"></button>
             </p>
           </div>
@@ -46,6 +46,11 @@
       </tr>
       </tbody>
     </table>
+
+    <hr>
+
+    <av-avenger-view *ngIf="avengerView" [avenger]="avengerViewSelected"></av-avenger-view>
+    <av-avenger-edit *ngIf="avengerEdit" [avenger]="avengerEditSelected"></av-avenger-edit>
 
   </div>
 </div>

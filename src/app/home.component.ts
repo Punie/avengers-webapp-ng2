@@ -8,6 +8,6 @@ import { Observable, Subscriber } from "rxjs";
 })
 export class HomeComponent {
   time = new Observable<Date>((observer: Subscriber<Date>) => {
-    setInterval(() => observer.next(new Date()), 1000);
+    setInterval(() => observer.next(new Date()), 10);
   });
 }

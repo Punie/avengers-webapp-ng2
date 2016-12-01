@@ -1,0 +1,59 @@
+<div class="panel panel-warning">
+  <div class="panel-heading">
+    <h2 class="panel-title">Avenger Edit - REF#{{avenger.id}}</h2>
+  </div>
+  <div class="panel-body">
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label for="firstName" class="col-sm-2 control-label">First Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="firstName" name="firstName"
+                 value="{{avenger.firstName}}" [(ngModel)]="avenger.firstName"
+                 required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="lastName" class="col-sm-2 control-label">Last Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="lname" name="lastName"
+                 value="{{avenger.lastName}}" [(ngModel)]="avenger.lastName"
+                 required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="alias" class="col-sm-2 control-label">Alias</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="alias" name="alias"
+                 value="{{avenger.alias}}" [(ngModel)]="avenger.alias"
+                 required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="power" class="col-sm-2 control-label">Power</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="power" name="power"
+                 value="{{avenger.power}}" [(ngModel)]="avenger.power"
+                 required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="agent" class="col-sm-2 control-label">Agent</label>
+        <div class="col-sm-10">
+          <select class="form-control" id="agent" name="agent"
+                  [(ngModel)]="avenger.agent.id"
+                  required>
+            <option *ngFor="let agent of agents | async" [value]="agent.id" [selected]="avenger.agent.id === agent.id">
+              {{agent.firstName}} {{agent.lastName}}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-primary" (click)="editAvenger()">Submit</button>
+          <button type="submit" class="btn btn-danger">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
