@@ -18,24 +18,38 @@
           <img class="media-object" [src]="avenger.imageURL" alt="..." *ngIf="avenger.imageURL">
         </div>
         <div class="media-body">
-          <div class="col-xs-4" style="text-align: right">
-            <i>Full Name</i>
-            <br>
-            <i>Alias</i>
-            <br>
-            <i>Power</i>
-            <br>
-            <i>S.H.I.E.L.D Handler</i>
-          </div>
-          <div class="col-xs-8">
-            <b>{{avenger.firstName}} {{avenger.lastName}}</b>
-            <br>
-            <b>{{avenger.alias}}</b>
-            <br>
-            <b>{{avenger.power}}</b>
-            <br>
-            <b>{{avenger.agent.firstName}} {{avenger.agent.lastName}}</b>
-          </div>
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label class="col-sm-4 control-label">Full Name</label>
+              <div class="col-sm-8">
+                <p class="form-control-static">{{avenger.firstName}} {{avenger.lastName}}</p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-4 control-label">Alias</label>
+              <div class="col-sm-8">
+                <p class="form-control-static">{{avenger.alias}}</p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-4 control-label">Power</label>
+              <div class="col-sm-8">
+                <p class="form-control-static">{{avenger.power}}</p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-4 control-label">S.H.I.E.L.D Handler</label>
+              <div class="col-sm-8">
+                <p class="form-control-static">{{avenger.agent.firstName}} {{avenger.agent.lastName}}</p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-4 control-label">Description</label>
+              <div class="col-sm-8">
+                <p class="form-control-static"></p>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
       <div class="col-xs-8">
