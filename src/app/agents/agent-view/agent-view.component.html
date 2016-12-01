@@ -25,10 +25,16 @@
                 <p class="form-control-static">{{agent.firstName}} {{agent.lastName}}</p>
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" *ngIf="agent.alias">
+              <label class="col-sm-4 control-label">Alias</label>
+              <div class="col-sm-8">
+                <p class="form-control-static">{{agent.alias}}</p>
+              </div>
+            </div>
+            <div class="form-group" *ngIf="agent.description">
               <label class="col-sm-4 control-label">Description</label>
               <div class="col-sm-8">
-                <p class="form-control-static"></p>
+                <p class="form-control-static">{{agent.description}}</p>
               </div>
             </div>
           </form>

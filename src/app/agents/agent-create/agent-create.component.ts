@@ -7,7 +7,7 @@ import {AgentsService} from "../agents.service";
   templateUrl: './agent-create.component.html'
 })
 export class AgentCreateComponent implements OnInit {
-  agentModel: Agent = new Agent(null,'','',null);
+  agentModel: Agent = new Agent(null,null,null,null,null,null);
 
   @Output() agentCreated = new EventEmitter();
   @Output() actionCanceled = new EventEmitter();

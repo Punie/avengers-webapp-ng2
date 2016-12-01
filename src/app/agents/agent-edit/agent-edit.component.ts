@@ -7,7 +7,7 @@ import {AgentsService} from "../agents.service";
   templateUrl: './agent-edit.component.html'
 })
 export class AgentEditComponent implements OnInit {
-  agentModel: Agent = new Agent('','','',null);
+  agentModel: Agent = new Agent(null,null,null,null,null,null);
 
   @Input() agent: Agent;
   @Output() agentUpdated = new EventEmitter();
@@ -23,6 +23,8 @@ export class AgentEditComponent implements OnInit {
       this.agentModel = new Agent(this.agent.id,
         this.agent.firstName,
         this.agent.lastName,
+        this.agent.alias,
+        this.agent.description,
         this.agent.imageURL);
     }
   }
