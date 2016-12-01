@@ -15,7 +15,8 @@ export class AgentFilterPipe implements PipeTransform {
     else {
       let formattedArgs = args.toLowerCase().trim();
       return items.filter(item => item.firstName.toLowerCase().match(formattedArgs)
-      || item.lastName.toLowerCase().match(formattedArgs));
+      || item.lastName.toLowerCase().match(formattedArgs)
+      || item.alias.toLowerCase().match(formattedArgs));
     }
   }
 

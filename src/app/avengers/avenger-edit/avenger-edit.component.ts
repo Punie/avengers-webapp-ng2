@@ -11,7 +11,7 @@ import {AvengersService} from "../avengers.service";
 })
 export class AvengerEditComponent implements OnInit, OnChanges {
   agents: Observable<Agent[]>;
-  avengerModel: Avenger = new Avenger('','','','',0,'',null);
+  avengerModel: Avenger = new Avenger(null,null,null,null,null,null,null,null);
 
   @Input() avenger: Avenger;
   @Output() avengerUpdated = new EventEmitter();
@@ -31,6 +31,7 @@ export class AvengerEditComponent implements OnInit, OnChanges {
                                       this.avenger.lastName,
                                       this.avenger.alias,
                                       this.avenger.power,
+                                      this.avenger.description,
                                       this.avenger.imageURL,
                                       this.avenger.agent);
     }

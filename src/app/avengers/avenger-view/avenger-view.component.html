@@ -40,13 +40,16 @@
             <div class="form-group">
               <label class="col-sm-4 control-label">S.H.I.E.L.D Handler</label>
               <div class="col-sm-8">
-                <p class="form-control-static">{{avenger.agent.firstName}} {{avenger.agent.lastName}}</p>
+                <p class="form-control-static">
+                  {{avenger.agent.firstName}} {{avenger.agent.lastName}}
+                  <span *ngIf="avenger.agent.alias">({{avenger.agent.alias}})</span>
+                </p>
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" *ngIf="avenger.description">
               <label class="col-sm-4 control-label">Description</label>
               <div class="col-sm-8">
-                <p class="form-control-static"></p>
+                <p class="form-control-static">{{avenger.description}}</p>
               </div>
             </div>
           </form>
