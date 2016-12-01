@@ -11,7 +11,7 @@ import {AvengersService} from "../avengers.service";
 })
 export class AvengerCreateComponent implements OnInit {
   agents: Observable<Agent[]>;
-  avengerModel: Avenger = new Avenger(null,'','','',0,new Agent('','',''));
+  avengerModel: Avenger = new Avenger(null,'','','',0,null,new Agent('','',''));
 
   @Output() avengerCreated = new EventEmitter();
   @Output() actionCanceled = new EventEmitter();

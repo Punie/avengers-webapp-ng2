@@ -9,8 +9,18 @@ import { AvengersService } from "./avengers.service";
   selector: 'av-avengers',
   templateUrl: './avengers.component.html',
   styles: [`
-    th {
+    .clickable {
       cursor: pointer;
+    }
+    .img-avenger {
+      max-width: 64px;
+      height: 64px;
+    }
+    .table > tbody > tr > td {
+      vertical-align: middle;
+    }
+    .img-cell {
+      text-align: center;
     }
   `]
 })

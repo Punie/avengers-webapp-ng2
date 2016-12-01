@@ -4,6 +4,12 @@
     <h1>Avengers</h1>
 
     <hr>
+
+    <av-avenger-view *ngIf="avengerView" [avenger]="avengerSelected" (actionCanceled)="closePanel()"></av-avenger-view>
+    <av-avenger-create *ngIf="avengerCreate" (avengerCreated)="refreshView()" (actionCanceled)="closePanel()"></av-avenger-create>
+    <av-avenger-edit *ngIf="avengerEdit" [avenger]="avengerSelected" (avengerUpdated)="refreshView()" (actionCanceled)="closePanel()"></av-avenger-edit>
+
+    <hr>
     <div class="row">
       <div class="col-md-8">
         <button class="btn btn-success" (click)="createAvenger()">Add Avenger</button>
@@ -22,23 +28,26 @@
     <table class="table table-bordered table-striped">
       <thead>
       <tr>
-        <th (click)="avOrderBy = 'firstName'">
+        <th>
+          Photo
+        </th>
+        <th class="clickable" (click)="avOrderBy = 'firstName'">
           First Name
           <span class="glyphicon glyphicon-sort-by-alphabet"></span>
         </th>
-        <th (click)="avOrderBy = 'lastName'">
+        <th class="clickable" (click)="avOrderBy = 'lastName'">
           Last Name
           <span class="glyphicon glyphicon-sort-by-alphabet"></span>
         </th>
-        <th (click)="avOrderBy = 'alias'">
+        <th class="clickable" (click)="avOrderBy = 'alias'">
           Alias
           <span class="glyphicon glyphicon-sort-by-alphabet"></span>
         </th>
-        <th (click)="avOrderBy = 'power'">
+        <th class="clickable" (click)="avOrderBy = 'power'">
           Power
           <span class="glyphicon glyphicon-sort-by-order"></span>
         </th>
-        <th (click)="avOrderBy = 'agent'">
+        <th class="clickable" (click)="avOrderBy = 'agent'">
           Agent
           <span class="glyphicon glyphicon-sort-by-alphabet"></span>
         </th>
@@ -47,6 +56,11 @@
       </thead>
       <tbody>
       <tr *ngFor="let avenger of avengers | async | avengerFilter : f.value | avengerOrderBy : avOrderBy">
+        <td class="img-cell">
+          <img [src]="avenger.imageURL"
+               *ngIf="avenger.imageURL"
+               class="img-avenger">
+        </td>
         <td>{{avenger.firstName}}</td>
         <td>{{avenger.lastName}}</td>
         <td>{{avenger.alias}}</td>
@@ -64,12 +78,6 @@
       </tr>
       </tbody>
     </table>
-
-    <hr>
-
-    <av-avenger-view *ngIf="avengerView" [avenger]="avengerSelected" (actionCanceled)="closePanel()"></av-avenger-view>
-    <av-avenger-create *ngIf="avengerCreate" (avengerCreated)="refreshView()" (actionCanceled)="closePanel()"></av-avenger-create>
-    <av-avenger-edit *ngIf="avengerEdit" [avenger]="avengerSelected" (avengerUpdated)="refreshView()" (actionCanceled)="closePanel()"></av-avenger-edit>
 
   </div>
 </div>

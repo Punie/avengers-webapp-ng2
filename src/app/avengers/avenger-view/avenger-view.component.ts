@@ -3,7 +3,13 @@ import {Avenger} from "../avenger";
 
 @Component({
   selector: 'av-avenger-view',
-  templateUrl: './avenger-view.component.html'
+  templateUrl: './avenger-view.component.html',
+  styles: [`
+    img {
+      max-width: 128px;
+      max-height: 128px;
+    }
+`]
 })
 export class AvengerViewComponent implements OnInit {
   @Input() avenger: Avenger;
