@@ -7,14 +7,18 @@ import { AvengersService } from "./avengers.service";
 
 @Component({
   selector: 'av-avengers',
-  templateUrl: './avengers.component.html'
+  templateUrl: './avengers.component.html',
+  styles: [`
+    th {
+      cursor: pointer;
+    }
+  `]
 })
 export class AvengersComponent implements OnInit {
   avengers: Observable<Avenger[]>;
+  avengerSelected: Avenger;
   avengerView = false;
-  avengerViewSelected: Avenger;
   avengerEdit = false;
-  avengerEditSelected: Avenger;
   avOrderBy: string;
 
 
@@ -25,19 +29,34 @@ export class AvengersComponent implements OnInit {
   }
 
   viewAvenger(avenger: Avenger) {
+    this.avengerEdit = false;
     this.avengerView = true;
-    this.avengerViewSelected = avenger;
+    this.avengerSelected = avenger;
   }
 
   editAvenger(avenger: Avenger) {
+    this.avengerView = false;
     this.avengerEdit = true;
-    this.avengerEditSelected = avenger;
+    this.avengerSelected = avenger;
   }
 
   removeAvenger(id: string) {
-    this.avengersService.deleteAvenger(id).subscribe(
-      () => this.avengers = this.avengersService.getAvengers()
-    );
+    this.avengersService.deleteAvenger(id).subscribe(() => {
+      this.avengerView = false;
+      this.avengerEdit = false;
+      this.avengers = this.avengersService.getAvengers()
+    });
+  }
+
+  refreshView() {
+    this.avengerView = false;
+    this.avengerEdit = false;
+    this.avengers = this.avengersService.getAvengers();
+  }
+
+  closePanel() {
+    this.avengerView = false;
+    this.avengerEdit = false;
   }
 
 }

@@ -5,9 +5,12 @@
 
     <hr>
     <div class="row">
-      <div class="col-md-4 col-md-offset-8">
+      <div class="col-md-8">
+        <button class="btn btn-success">Add Avenger</button>
+      </div>
+      <div class="col-md-4">
         <div class="input-group">
-          <input type="text" class="form-control" #f (keyup)="0">
+          <input type="text" class="form-control" placeholder="Filter" #f (keyup)="0">
           <span class="input-group-addon">
             <span class="glyphicon glyphicon-filter"></span>
           </span>
@@ -19,11 +22,26 @@
     <table class="table table-bordered table-striped">
       <thead>
       <tr>
-        <th>First Name <span class="glyphicon glyphicon-sort-by-alphabet" type="button" (click)="avOrderBy = 'firstName'"></span></th>
-        <th>Last Name <span class="glyphicon glyphicon-sort-by-alphabet" type="button" (click)="avOrderBy = 'lastName'"></span></th>
-        <th>Alias <span class="glyphicon glyphicon-sort-by-alphabet" type="button" (click)="avOrderBy = 'alias'"></span></th>
-        <th>Power <span class="glyphicon glyphicon-sort-by-order" type="button" (click)="avOrderBy = 'power'"></span></th>
-        <th>Agent <span class="glyphicon glyphicon-sort-by-alphabet" type="button" (click)="avOrderBy = 'agent'"></span></th>
+        <th (click)="avOrderBy = 'firstName'">
+          First Name
+          <span class="glyphicon glyphicon-sort-by-alphabet"></span>
+        </th>
+        <th (click)="avOrderBy = 'lastName'">
+          Last Name
+          <span class="glyphicon glyphicon-sort-by-alphabet"></span>
+        </th>
+        <th (click)="avOrderBy = 'alias'">
+          Alias
+          <span class="glyphicon glyphicon-sort-by-alphabet"></span>
+        </th>
+        <th (click)="avOrderBy = 'power'">
+          Power
+          <span class="glyphicon glyphicon-sort-by-order"></span>
+        </th>
+        <th (click)="avOrderBy = 'agent'">
+          Agent
+          <span class="glyphicon glyphicon-sort-by-alphabet"></span>
+        </th>
         <th></th>
       </tr>
       </thead>
@@ -49,8 +67,8 @@
 
     <hr>
 
-    <av-avenger-view *ngIf="avengerView" [avenger]="avengerViewSelected"></av-avenger-view>
-    <av-avenger-edit *ngIf="avengerEdit" [avenger]="avengerEditSelected"></av-avenger-edit>
+    <av-avenger-view *ngIf="avengerView" [avenger]="avengerSelected" (actionCanceled)="closePanel()"></av-avenger-view>
+    <av-avenger-edit *ngIf="avengerEdit" [avenger]="avengerSelected" (avengerUpdated)="refreshView()" (actionCanceled)="closePanel()"></av-avenger-edit>
 
   </div>
 </div>
