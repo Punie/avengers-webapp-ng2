@@ -42,7 +42,7 @@
               <div class="col-sm-8">
                 <p class="form-control-static">
                   {{avenger.agent.firstName}} {{avenger.agent.lastName}}
-                  <span *ngIf="avenger.agent.alias">({{avenger.agent.alias}})</span>
+                  <i *ngIf="avenger.agent.alias">(aka. {{avenger.agent.alias}})</i>
                 </p>
               </div>
             </div>
