@@ -4,10 +4,19 @@
     <h1>Agents</h1>
 
     <hr>
+
+    <av-agent-view *ngIf="agentView" [agent]="agentSelected" (actionCanceled)="closePanel()"></av-agent-view>
+    <av-agent-create *ngIf="agentCreate" (agentCreated)="refreshView()" (actionCanceled)="closePanel()"></av-agent-create>
+    <av-agent-edit *ngIf="agentEdit" [agent]="agentSelected" (agentUpdated)="refreshView()" (actionCanceled)="closePanel()"></av-agent-edit>
+
+    <hr>
     <div class="row">
-      <div class="col-md-4 col-md-offset-8">
+      <div class="col-md-8">
+        <button class="btn btn-success" (click)="createAgent()">Add Agent</button>
+      </div>
+      <div class="col-md-4">
         <div class="input-group">
-          <input type="text" class="form-control" #f (keyup)="0">
+          <input type="text" class="form-control" placeholder="Filter" #f (keyup)="0">
           <span class="input-group-addon">
             <span class="glyphicon glyphicon-filter"></span>
           </span>
@@ -19,8 +28,14 @@
     <table class="table table-bordered table-striped">
       <thead>
       <tr>
-        <th>First Name <span class="glyphicon glyphicon-sort-by-alphabet" type="button" (click)="agOrderBy = 'firstName'"></span></th>
-        <th>Last Name <span class="glyphicon glyphicon-sort-by-alphabet" type="button" (click)="agOrderBy = 'lastName'"></span></th>
+        <th class="clickable" (click)="agOrderBy = 'firstName'">
+          First Name
+          <span class="glyphicon glyphicon-sort-by-alphabet"></span>
+        </th>
+        <th class="clickable" (click)="agOrderBy = 'lastName'">
+          Last Name
+          <span class="glyphicon glyphicon-sort-by-alphabet"></span>
+        </th>
         <th></th>
       </tr>
       </thead>
@@ -31,8 +46,8 @@
         <td>
           <div>
             <p>
-              <button class="btn btn-xs btn-success glyphicon glyphicon-user" type="submit"></button>
-              <button class="btn btn-xs btn-warning glyphicon glyphicon-pencil" type="submit"></button>
+              <button class="btn btn-xs btn-success glyphicon glyphicon-user" type="submit" (click)="viewAgent(agent)"></button>
+              <button class="btn btn-xs btn-warning glyphicon glyphicon-pencil" type="submit" (click)="editAgent(agent)"></button>
               <button class="btn btn-xs btn-danger glyphicon glyphicon-remove" type="submit" (click)="removeAgent(agent.id)"></button>
             </p>
           </div>

@@ -5,10 +5,19 @@ import {AgentsService} from "./agents.service";
 
 @Component({
   selector: 'av-agents',
-  templateUrl: './agents.component.html'
+  templateUrl: './agents.component.html',
+  styles: [`
+    .clickable {
+      cursor: pointer;
+    }
+  `]
 })
 export class AgentsComponent implements OnInit {
   agents: Observable<Agent[]>;
+  agentSelected: Agent;
+  agentView = false;
+  agentCreate = false;
+  agentEdit = false;
   agOrderBy: string;
 
   constructor(private agentsService: AgentsService) { }
@@ -17,10 +26,43 @@ export class AgentsComponent implements OnInit {
     this.agents = this.agentsService.getAgents();
   }
 
+  viewAgent(agent: Agent) {
+    this.agentCreate = false;
+    this.agentEdit = false;
+    this.agentView = true;
+    this.agentSelected = agent;
+  }
+
+  createAgent() {
+    this.agentView = false;
+    this.agentEdit = false;
+    this.agentCreate = true;
+  }
+
+  editAgent(agent: Agent) {
+    this.agentView = false;
+    this.agentCreate = false;
+    this.agentEdit = true;
+    this.agentSelected = agent;
+  }
+
   removeAgent(id: string) {
     this.agentsService.deleteAgent(id).subscribe(
       () => this.agents = this.agentsService.getAgents()
     );
+  }
+
+  refreshView() {
+    this.agentView = false;
+    this.agentCreate = false;
+    this.agentEdit = false;
+    this.agents = this.agentsService.getAgents();
+  }
+
+  closePanel() {
+    this.agentView = false;
+    this.agentCreate = false;
+    this.agentEdit = false;
   }
 
 }

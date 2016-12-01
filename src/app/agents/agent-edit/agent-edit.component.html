@@ -1,0 +1,46 @@
+<div class="panel panel-warning">
+  <div class="panel-heading">
+    <div class="row">
+      <div class="col-xs-8">
+        <h2 class="panel-title">Agent Edit - {{agent.firstName}} {{agent.lastName}}</h2>
+      </div>
+      <div class="col-xs-4 text-right">
+        <button type="button" class="btn btn-xs btn-danger" (click)="onCancel()">
+          <span class="glyphicon glyphicon-remove"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <form class="form-horizontal" #agentForm="ngForm">
+      <div class="form-group">
+        <label for="firstName" class="col-sm-2 control-label">First Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="firstName" name="firstName"
+                 value="{{agent.firstName}}" [(ngModel)]="agentModel.firstName"
+                 required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="lastName" class="col-sm-2 control-label">Last Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="lastName" name="lastName"
+                 value="{{agent.lastName}}" [(ngModel)]="agentModel.lastName"
+                 required>
+        </div>
+      </div>
+      <!--<div class="form-group">-->
+        <!--<label for="imageURL" class="col-sm-2 control-label">Image URL</label>-->
+        <!--<div class="col-sm-10">-->
+          <!--<input type="text" class="form-control" id="imageURL" name="imageURL"-->
+                 <!--value="{{avenger.imageURL}}" [(ngModel)]="avengerModel.imageURL">-->
+        <!--</div>-->
+      <!--</div>-->
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="button" class="btn btn-primary" (click)="editAgent()" [disabled]="!agentForm.form.valid">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <div class="row">
+      <div class="col-xs-8">
+        <h2 class="panel-title">Agent Sheet - {{agent.firstName}} {{agent.lastName}}</h2>
+      </div>
+      <div class="col-xs-4 text-right">
+        <button type="button" class="btn btn-xs btn-danger" (click)="onCancel()">
+          <span class="glyphicon glyphicon-remove"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="media">
+        <div class="media-left">
+          <!--<img class="media-object" [src]="agent.imageURL" *ngIf="agent.imageURL">-->
+        </div>
+        <div class="media-body">
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label class="col-sm-4 control-label">Full Name</label>
+              <div class="col-sm-8">
+                <p class="form-control-static">{{agent.firstName}} {{agent.lastName}}</p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-4 control-label">Description</label>
+              <div class="col-sm-8">
+                <p class="form-control-static"></p>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-xs-8">
+      </div>
+    </div>
+  </div>
+</div>
