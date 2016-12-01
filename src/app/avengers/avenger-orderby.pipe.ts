@@ -18,10 +18,10 @@ export class AvengerOrderByPipe implements PipeTransform {
         (item1, item2) => {
           if (typeof item1[args] === 'string')
             return item1[args].localeCompare(item2[args]);
-          if (typeof item1[args] === "number")
-            return item1[args] - item2[args]
-          if (typeof item1[args] === "agent")
-            return (item1[args].firstName + item1[args].lastName).localeCompare(item2[args].firstName + item2[args].lastName)
+          if (typeof item1[args] === 'number')
+            return item1[args] - item2[args];
+          if (args === 'agent')
+            return (item1.agent.firstName + item1.agent.lastName).localeCompare(item2.agent.firstName + item2.agent.lastName);
         });
   }
 
