@@ -28,6 +28,9 @@
     <table class="table table-bordered table-striped">
       <thead>
       <tr>
+        <th>
+          Photo
+        </th>
         <th class="clickable" (click)="agOrderBy = 'firstName'">
           First Name
           <span class="glyphicon glyphicon-sort-by-alphabet"></span>
@@ -41,6 +44,11 @@
       </thead>
       <tbody>
       <tr *ngFor="let agent of agents | async | agentFilter : f.value | agentOrderBy : agOrderBy">
+        <td class="img-cell">
+          <img [src]="agent.imageURL"
+               *ngIf="agent.imageURL"
+               class="img-agent">
+        </td>
         <td>{{agent.firstName}}</td>
         <td>{{agent.lastName}}</td>
         <td>

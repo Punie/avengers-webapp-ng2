@@ -10,6 +10,16 @@ import {AgentsService} from "./agents.service";
     .clickable {
       cursor: pointer;
     }
+    .img-agent {
+      max-width: 64px;
+      height: 64px;
+    }
+    .table > tbody > tr > td {
+      vertical-align: middle;
+    }
+    .img-cell {
+      text-align: center;
+    }
   `]
 })
 export class AgentsComponent implements OnInit {
