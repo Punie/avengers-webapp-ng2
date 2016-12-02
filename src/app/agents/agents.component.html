@@ -59,9 +59,12 @@
         <td>
           <div>
             <p>
-              <button class="btn btn-xs btn-success glyphicon glyphicon-user" type="submit" (click)="viewAgent(agent)"></button>
-              <button class="btn btn-xs btn-warning glyphicon glyphicon-pencil" type="submit" (click)="editAgent(agent)"></button>
-              <button class="btn btn-xs btn-danger glyphicon glyphicon-remove" type="submit" (click)="removeAgent(agent.id)"></button>
+              <button class="btn btn-xs btn-success glyphicon glyphicon-user" type="submit" (click)="viewAgent(agent)"
+                      [tooltip]="'Display ' + agent.firstName + ' ' + agent.lastName + ' info'" tooltipPlacement="top"></button>
+              <button class="btn btn-xs btn-warning glyphicon glyphicon-pencil" type="submit" (click)="editAgent(agent)"
+                      [tooltip]="'Edit ' + agent.firstName + ' ' + agent.lastName + ' info'" tooltipPlacement="bottom"></button>
+              <button class="btn btn-xs btn-danger glyphicon glyphicon-remove" type="submit" (click)="removeAgent(agent.id)"
+                      [tooltip]="'Remove ' + agent.firstName + ' ' + agent.lastName" tooltipPlacement="right"></button>
             </p>
           </div>
         </td>

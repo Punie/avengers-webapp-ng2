@@ -21,6 +21,8 @@ import { AvengerCreateComponent } from './avengers/avenger-create/avenger-create
 import { AgentCreateComponent } from './agents/agent-create/agent-create.component';
 import { AgentEditComponent } from './agents/agent-edit/agent-edit.component';
 import { AgentViewComponent } from './agents/agent-view/agent-view.component';
+import { AboutComponent } from './about/about.component';
+import { TooltipModule } from "ng2-tooltip";
 
 @NgModule({
   declarations: [
@@ -38,12 +40,14 @@ import { AgentViewComponent } from './agents/agent-view/agent-view.component';
     AvengerCreateComponent,
     AgentCreateComponent,
     AgentEditComponent,
-    AgentViewComponent
+    AgentViewComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    TooltipModule,
     routing
   ],
   providers: [

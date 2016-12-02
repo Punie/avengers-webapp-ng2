@@ -69,9 +69,12 @@
         <td>
           <div>
             <p>
-              <button class="btn btn-xs btn-success glyphicon glyphicon-user" type="submit" (click)="viewAvenger(avenger)"></button>
-              <button class="btn btn-xs btn-warning glyphicon glyphicon-pencil" type="submit" (click)="editAvenger(avenger)"></button>
-              <button class="btn btn-xs btn-danger glyphicon glyphicon-remove" type="submit" (click)="removeAvenger(avenger.id)"></button>
+              <button class="btn btn-xs btn-success glyphicon glyphicon-user" type="button" (click)="viewAvenger(avenger)"
+                      [tooltip]="'Display ' + avenger.alias + ' info'" tooltipPlacement="top"></button>
+              <button class="btn btn-xs btn-warning glyphicon glyphicon-pencil" type="button" (click)="editAvenger(avenger)"
+                      [tooltip]="'Edit ' + avenger.alias + ' info'" tooltipPlacement="bottom"></button>
+              <button class="btn btn-xs btn-danger glyphicon glyphicon-remove" type="button" (click)="removeAvenger(avenger.id)"
+                      [tooltip]="'Remove ' + avenger.alias" tooltipPlacement="right"></button>
             </p>
           </div>
         </td>
